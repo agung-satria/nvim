@@ -1,0 +1,50 @@
+return {
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPost", "BufNewFile" },
+	build = ":TSUpdate",
+	enabled = true,
+	config = function()
+		local configs = require("nvim-treesitter.configs")
+		configs.setup({
+			-- auto_install = true,
+			ensure_installed = {
+				"bash",
+				"html",
+				"css",
+				"javascript",
+				"typescript",
+				"json",
+				"tsx",
+				"c",
+				"lua",
+				"php",
+				"python",
+				"go",
+				"markdown",
+				"markdown_inline",
+				"vim",
+				"vimdoc",
+				"query",
+				"regex",
+				"java",
+				"jq",
+				"dockerfile",
+				"bash",
+				"ruby",
+				"yaml",
+			},
+			sync_install = false,
+			highlight = { enable = true },
+			indent = { enable = true },
+			incremental_selection = {
+				enable = true,
+				keymaps = {
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
+					scope_incremental = "<C-cr>",
+					node_decremental = "<bs>",
+				},
+			},
+		})
+	end,
+}
